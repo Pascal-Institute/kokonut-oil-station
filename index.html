@@ -8,7 +8,7 @@
 <h1>minimum kokonut protocol version for valid reward : 3</h1>  
 <h1>version : 3</h1>  
 <h1>difficulty : 6</h1>
-<h1 id="reward"></h1>
+<h1 id="reward" data-reward=""></h1>
 <script>
   function calculateReward() {
     var currentYear = new Date(Date.UTC(new Date().getUTCFullYear(), 0, 1)).getUTCFullYear();
@@ -19,6 +19,7 @@
     result = Math.round(result * 10000000) / 10000000;
 
     document.getElementById("reward").textContent = "reward : " + result;
+    document.getElementById("reward").setAttribute("data-reward", result);
     }
 
     window.onload = function() {
