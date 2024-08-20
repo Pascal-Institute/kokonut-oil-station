@@ -8,6 +8,22 @@
 <h1>minimum version for valid reward : 3</h1>  
 <h1>version : 3</h1>  
 <h1>difficulty : 6</h1>
-<h1>reward : 50.0</h1>
+<h1 id="reward"></h1>
+<script>
+  function calculateReward() {
+    var currentYear = new Date(Date.UTC(new Date().getUTCFullYear(), 0, 1)).getUTCFullYear();
+    var logValue = Math.log2(1 + (currentYear + 1 - 2024));
+
+    var result = 50.0 / logValue;
+
+    result = Math.round(result * 10000000) / 10000000;
+
+    document.getElementById("reward").textContent = result;
+    }
+
+    window.onload = function() {
+      calculateReward();
+    };
+</script>
 </body>
 </html>
